@@ -6,7 +6,7 @@
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
-
+import java.util.Scanner;
 /**
  * The class that models your game. You should create a more specific child of this class and instantiate the methods
  * given.
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 public abstract class Game {
 
     private final String name;//the title of the game
-    private ArrayList<Player> players;// the players of the game
+    private ArrayList<RegisteredPlayer> registeredPlayers;// the players of the game
 
     public Game(String name) {
         this.name = name;
-        players = new ArrayList();
+        registeredPlayers = new ArrayList();
     }
 
     /**
@@ -34,17 +34,37 @@ public abstract class Game {
     /**
      * @return the players of this game
      */
-    public ArrayList<Player> getPlayers() {
-        return players;
+    public ArrayList<RegisteredPlayer> getRegisteredPlayers() {
+        return registeredPlayers;
     }
 
     /**
      * @param players the players of this game
      */
-    public void setPlayers(ArrayList<Player> players) {
-        this.players = players;
+    public void setPlayers(ArrayList<RegisteredPlayer> players) {
+        this.registeredPlayers = players;
+    }
+     public void registerPlayers() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to " + getName());
+
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Enter Player " + (i + 1) + "'s username: ");
+            String username = scanner.nextLine();
+            System.out.print("Enter Player " + (i + 1) + "'s password: ");
+            String password = scanner.nextLine();
+
+            User user = new User(username, password);
+            RegisteredPlayer registeredPlayer = new RegisteredPlayer(username, user);
+            registeredPlayers.add(registeredPlayer);
+        }
+
+        System.out.println("Players registered successfully!");
     }
 
+    
+    
     /**
      * Play the game. This might be one method or many method calls depending on your game.
      */
@@ -55,4 +75,11 @@ public abstract class Game {
      */
     public abstract void declareWinner();
 
+    
+     public static void main(String[] args) {
+        WarCardGame game = new WarCardGame(); // Replace "YourGame" with the specific child class name
+        game.registerPlayers();
+        game.play();
+        game.declareWinner();
+    }
 }//end class
