@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  *
- * @author dancye
+ * 
  * @author Ravneet Aug,2023
  */
 public abstract class Player {
@@ -37,8 +37,7 @@ public abstract class Player {
     }
 
     /**
-     * Ensure that the playerID is unique
-     *
+     
      * @param name the player name to set
      */
     public void setName(String name) {

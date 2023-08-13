@@ -11,8 +11,7 @@ import java.util.Scanner;
  * The class that models your game. You should create a more specific child of this class and instantiate the methods
  * given.
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
+ * @author 
  */
 public abstract class Game {
 
@@ -66,7 +65,7 @@ public abstract class Game {
     
     
     /**
-     * Play the game. This might be one method or many method calls depending on your game.
+     * Play the game. 
      */
     public abstract void play();
 
@@ -77,7 +76,7 @@ public abstract class Game {
 
     
      public static void main(String[] args) {
-        WarCardGame game = new WarCardGame(); // Replace "YourGame" with the specific child class name
+        WarCardGame game = new WarCardGame(); 
         game.registerPlayers();
         game.play();
         game.declareWinner();

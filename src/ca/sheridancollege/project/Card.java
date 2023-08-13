@@ -21,5 +21,30 @@ public abstract class Card {
      */
     @Override
     public abstract String toString();
+    
+     private int rank;
+   
+     
+       public Card(int rank) {
+        this.rank = rank;
+      
+    }
+      public int getRank() {
+        return rank;
+    }
 
+    
+
+    /**
+     * Compares two cards based on their rank.
+     *
+     * @param otherCard The card to compare with
+     * @return Negative value if this card's rank is less, positive value if greater, 0 if equal
+     */
+    public int compare(Card otherCard) {
+        return Integer.compare(this.rank, otherCard.rank);
+    }
+
+   
+   
 }
