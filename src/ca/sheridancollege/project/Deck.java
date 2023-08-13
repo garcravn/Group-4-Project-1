@@ -6,7 +6,7 @@ package ca.sheridancollege.project;
 
 /**
  *
- * @author kaurg
+ * @author harkirat
  */
 
    import java.util.ArrayList;
@@ -31,7 +31,13 @@ public class Deck {
     public void shuffle() {
         Collections.shuffle(cards);
     }
+    public List<Card> getCards() {
+        return cards;
+    }
 
+    public void addCard(Card card) {
+        cards.add(card);
+    }
     public boolean isEmpty() {
         return cards.isEmpty();
     }
